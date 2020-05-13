@@ -6,4 +6,12 @@ export default ({ dispatch }) => (next) => (action) => {
   if (!action.payload || !action.payload.then) {
     return next(action);
   }
+
+  // when promise get its data and then create a new action
+  // and dispatch it with new data
+
+  action.payload.then(function (response) {
+    const newAction = { ...action, payload: response };
+    dispatch(newAction);
+  });
 };
