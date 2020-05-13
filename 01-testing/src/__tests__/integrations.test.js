@@ -11,6 +11,10 @@ it("can fetch a list of comments and display them", () => {
       <App />
     </Root>
   );
+
   // find the 'fetchComments' button and click it
+  wrapped.find(".fetch-comments").simulate("click");
+
   // Expect to find a list of comments!
+  expect(wrapped.find("li").length).toEqual(500);
 });
