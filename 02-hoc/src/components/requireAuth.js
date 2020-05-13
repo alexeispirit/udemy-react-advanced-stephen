@@ -17,12 +17,8 @@ export default (ChildComponent) => {
       }
     }
 
-    handleChange = (event) => {
-      this.setState({ comment: event.target.value });
-    };
-
     render() {
-      return <ChildComponent />;
+      return <ChildComponent {...this.props} />;
     }
   }
 
