@@ -2,6 +2,13 @@ const User = require("../models/user");
 
 exports.signup = function (req, res, next) {
   const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res
+      .status(422)
+      .send({ error: "You must provide email and password" });
+  }
+
   // see if user with given email exists
   User.findOne({ email: email }, function (err, existingUser) {
     if (err) {
