@@ -8,7 +8,7 @@ import reduxThunk from "redux-thunk";
 import reducers from "./reducers";
 import App from "./components/App";
 import Welcome from "./components/Welcome";
-import SignUp from "./components/SignUp";
+import SignUp from "./components/Auth/SignUp";
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
