@@ -14,6 +14,17 @@ const localLogin = new LocalStrategy(localOptions, function (
   done
 ) {
   // verify username and password
+  User.findOne({ email: email }, function (err, user) {
+    if (err) {
+      return done(err);
+    }
+
+    if (!user) {
+      return done(null, false);
+    }
+
+    // compare passwords
+  });
 });
 
 // setup options for jwt strategy
